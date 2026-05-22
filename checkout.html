@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pasarela de pago segura de Merkadocom. Finaliza tu compra utilizando tarjeta de crédito, PayPal o transferencia directa.">
+    <title>Pasarela de Pago Segura | Merkadocom</title>
+    <!-- Estilos base -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- BARRA SUPERIOR (TOP BAR) -->
+    <div class="top-bar">
+        <div>
+            <span><i class="far fa-calendar-alt"></i> Viernes, 22/05/26</span>
+        </div>
+        <ul class="top-bar-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="blog.html">Merkadocom Magazine</a></li>
+            <li><a href="dashboard.html">Mi Panel</a></li>
+            <li><a href="directory.html">Directorio de Tiendas</a></li>
+        </ul>
+        <div class="top-bar-right">
+            <a href="#" id="whatsapp-float" class="chat-whatsapp">
+                <i class="fab fa-whatsapp"></i> Ayuda en línea
+            </a>
+        </div>
+    </div>
+
+    <!-- CABECERA DE CHECKOUT -->
+    <header class="main-header" style="border-bottom:1px solid var(--color-border); padding: 15px 5%;">
+        <!-- Logotipo -->
+        <a href="index.html" class="logo">
+            <span class="logo-main">merkadocom</span>
+            <span class="logo-sub">Pasarela de Pagos Ficticia</span>
+        </a>
+        <div style="font-size: 13px; font-weight: 600; color: var(--color-accent-green); display:flex; align-items:center; gap:8px;">
+            <i class="fas fa-lock" style="font-size:16px;"></i> Conexión Cifrada SSL 256-bits
+        </div>
+    </header>
+
+    <!-- CUERPO DE CHECKOUT -->
+    <main class="checkout-layout">
+        <!-- Formulario e Información del Comprador -->
+        <div class="checkout-form-container">
+            <form id="checkout-main-form">
+                
+                <!-- Sección 1: Datos de Facturación -->
+                <div class="checkout-section-title">
+                    <i class="far fa-id-card"></i> Datos de Facturación &amp; Envío
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="buyer-name" class="form-label">Nombre Completo *</label>
+                        <input type="text" id="buyer-name" required placeholder="Ej. Juan Pérez">
+                    </div>
+                    <div class="form-group">
+                        <label for="buyer-email" class="form-label">Correo Electrónico *</label>
+                        <input type="email" id="buyer-email" required placeholder="Ej. juan.perez@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="buyer-id" class="form-label">Cédula o RUC *</label>
+                        <input type="text" id="buyer-id" required placeholder="Ej. 1712345678">
+                    </div>
+                    <div class="form-group">
+                        <label for="buyer-phone" class="form-label">Número de Celular *</label>
+                        <input type="tel" id="buyer-phone" required placeholder="Ej. +593 99 181 8544">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="buyer-address" class="form-label">Dirección de Entrega / Facturación *</label>
+                        <input type="text" id="buyer-address" required placeholder="Ej. Av. de los Shyris N34-122 y Portugal">
+                    </div>
+                    <div class="form-group">
+                        <label for="buyer-city" class="form-label">Ciudad *</label>
+                        <input type="text" id="buyer-city" required placeholder="Ej. Quito">
+                    </div>
+                    <div class="form-group">
+                        <label for="buyer-zip" class="form-label">Código Postal (Opcional)</label>
+                        <input type="text" id="buyer-zip" placeholder="Ej. 170102">
+                    </div>
+                </div>
+
+                <!-- Sección 2: Método de Pago -->
+                <div class="checkout-section-title">
+                    <i class="far fa-credit-card"></i> Seleccione su Método de Pago
+                </div>
+                
+                <div class="payment-methods">
+                    <div class="payment-method-card active" data-method="card">
+                        <i class="fas fa-credit-card" style="font-size:20px;"></i>
+                        <span>Tarjeta Crédito / Débito</span>
+                    </div>
+                    <div class="payment-method-card" data-method="paypal">
+                        <i class="fab fa-paypal" style="font-size:20px; color:#003087;"></i>
+                        <span>PayPal Seguro</span>
+                    </div>
+                    <div class="payment-method-card" data-method="transfer">
+                        <i class="fas fa-university" style="font-size:20px;"></i>
+                        <span>Transferencia Bancaria</span>
+                    </div>
+                </div>
+
+                <!-- Formulario 1: Tarjeta Crédito -->
+                <div id="pay-form-card">
+                    <!-- Vista 3D Interactiva de la Tarjeta -->
+                    <div class="card-wrapper">
+                        <div id="credit-card-preview" class="credit-card-preview">
+                            <!-- Cara Frontal -->
+                            <div class="card-front">
+                                <div style="display:flex; justify-content:space-between; align-items:center;">
+                                    <div class="card-chip"></div>
+                                    <div style="font-weight:700; font-size:14px; font-style:italic;">VISA / MC</div>
+                                </div>
+                                <div id="card-num-display" class="card-number-display">•••• •••• •••• ••••</div>
+                                <div class="card-bottom-row">
+                                    <div>
+                                        <div style="font-size:8px; opacity:0.6; margin-bottom:2px;">TITULAR DE LA TARJETA</div>
+                                        <div id="card-holder-display" style="text-transform:uppercase;">NOMBRE DEL TITULAR</div>
+                                    </div>
+                                    <div style="text-align:right;">
+                                        <div style="font-size:8px; opacity:0.6; margin-bottom:2px;">EXPIRA</div>
+                                        <div id="card-exp-display">MM/AA</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Cara Trasera -->
+                            <div class="card-back">
+                                <div class="card-strip"></div>
+                                <div class="card-signature-area">
+                                    <div id="card-cvv-display" style="font-family:'Courier New', monospace; font-size:14px;">•••</div>
+                                </div>
+                                <div style="padding: 10px 20px; text-align:right; font-size:8px; opacity:0.5;">CVC/CVV</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campos de Tarjeta -->
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="card-number-input" class="form-label">Número de Tarjeta</label>
+                            <input type="text" id="card-number-input" placeholder="4111 2222 3333 4444">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="card-name-input" class="form-label">Nombre Impreso en la Tarjeta</label>
+                            <input type="text" id="card-name-input" placeholder="JUAN PEREZ">
+                        </div>
+                        <div class="form-group">
+                            <label for="card-expiry-input" class="form-label">Fecha de Expiración</label>
+                            <input type="text" id="card-expiry-input" placeholder="MM/AA">
+                        </div>
+                        <div class="form-group">
+                            <label for="card-cvv-input" class="form-label">CVC / CVV (Código de Seguridad)</label>
+                            <input type="password" id="card-cvv-input" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario 2: PayPal -->
+                <div id="pay-form-paypal" style="display:none; padding:20px; border:1px solid var(--color-border); border-radius:var(--radius-sm); text-align:center; background:#fafafa;">
+                    <i class="fab fa-paypal" style="font-size:48px; color:#003087; margin-bottom:15px;"></i>
+                    <p style="font-size:14px; margin-bottom:15px; font-weight:600;">Se abrirá una ventana emergente segura para iniciar sesión en tu cuenta de PayPal y autorizar el cargo.</p>
+                    <small style="color:var(--color-text-muted);">Al confirmar el pedido, aceptas las políticas de facturación internacional.</small>
+                </div>
+
+                <!-- Formulario 3: Transferencia Bancaria -->
+                <div id="pay-form-transfer" style="display:none; padding:20px; border:1px solid var(--color-border); border-radius:var(--radius-sm); background:#fafafa;">
+                    <h4 style="font-family:var(--font-heading); color:var(--color-primary); margin-bottom:10px;"><i class="fas fa-university"></i> Cuentas Bancarias de la Agencia:</h4>
+                    <p style="font-size:13px; margin-bottom:15px; line-height:1.6;">
+                        Por favor realiza la transferencia a la siguiente cuenta y sube el comprobante. Una vez verificado (aprox. 15 minutos), activaremos tus servicios/despacharemos productos:
+                    </p>
+                    <div style="background:#ffffff; padding:12px; border-radius:var(--radius-sm); border:1px solid var(--color-border); font-size:13px; margin-bottom:15px;">
+                        <strong>Banco Pichincha (Cuenta Corriente)</strong><br>
+                        Número de Cuenta: 2201849764<br>
+                        Titular: Merkadocom E-commerce S.A.S.<br>
+                        RUC: 1792945763001<br>
+                        Correo: pagos@merkadocom.com
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Subir Captura del Comprobante (Simulado)</label>
+                        <input type="file" accept="image/*" class="file-input" onclick="showToast('Imagen del comprobante cargada con éxito')">
+                    </div>
+                </div>
+
+                <!-- Botón de Envío -->
+                <button type="submit" id="checkout-submit-btn" class="checkout-btn" style="margin-top:20px; font-size:16px;">
+                    <i class="fas fa-lock"></i> Confirmar y Realizar Pago Seguro
+                </button>
+            </form>
+        </div>
+
+        <!-- Resumen del Pedido (Columna Derecha) -->
+        <div style="display:flex; flex-direction:column; gap:20px;">
+            <div class="checkout-form-container">
+                <div class="checkout-section-title" style="border-bottom:1px solid var(--color-border); padding-bottom:8px; margin-bottom:15px;">
+                    <i class="fas fa-shopping-basket"></i> Resumen de tu Compra
+                </div>
+                
+                <div id="checkout-order-items" style="max-height: 250px; overflow-y: auto; margin-bottom: 20px; padding-right:5px;">
+                    <!-- Rellenado dinámicamente -->
+                </div>
+
+                <div style="display:flex; flex-direction:column; gap:8px; font-size:13px; border-top:1px solid var(--color-border); padding-top:15px;">
+                    <div style="display:flex; justify-content:space-between;">
+                        <span>Subtotal Neto:</span>
+                        <span id="checkout-subtotal" style="font-weight:600;">$0.00 USD</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between;">
+                        <span>IVA Regulado (12%):</span>
+                        <span id="checkout-tax" style="font-weight:600;">$0.00 USD</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:16px; font-weight:700; color:var(--color-primary); border-top:1px dashed var(--color-border); padding-top:10px; margin-top:10px;">
+                        <span>Total a Pagar:</span>
+                        <span id="checkout-total">$0.00 USD</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Garantía y Certificaciones -->
+            <div style="background:#ffffff; border:1px solid var(--color-border); border-radius:var(--radius-md); padding:20px; text-align:center; font-size:12px; color:var(--color-text-muted);">
+                <div style="display:flex; justify-content:center; gap:20px; font-size:24px; margin-bottom:12px; color:var(--color-primary);">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-discover" title="Discover"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                </div>
+                <p>Tu pago está garantizado por el sistema de seguridad encriptada AES-256 de Merkadocom. Recibirás tu factura electrónica y acceso a soporte técnico al instante.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL DE PAGO COMPLETADO CON ÉXITO -->
+    <div id="payment-success-modal" class="modal-overlay">
+        <div class="modal-container" style="max-width:500px; text-align:center; padding:40px;">
+            <div style="width:70px; height:70px; border-radius:50%; background-color:#d1fae5; color:#10b981; display:flex; align-items:center; justify-content:center; font-size:36px; margin:0 auto 20px auto; border:3px solid #10b981;">
+                ✓
+            </div>
+            <h2 style="font-family:var(--font-heading); color:var(--color-primary); margin-bottom:10px;">¡Pago Procesado Exitosamente!</h2>
+            <p style="font-size:14px; color:var(--color-text-muted); margin-bottom:20px; line-height:1.5;">
+                Hemos registrado tu transacción con el ID de Orden: <strong id="success-order-id" style="color:var(--color-accent-purple);">ORD-000000</strong>. Recibirás la factura legal en tu correo en unos minutos.
+            </p>
+            <div style="background:var(--color-bg-main); border:1px solid var(--color-border); border-radius:var(--radius-sm); padding:15px; margin-bottom:25px; text-align:left; font-size:12px; line-height:1.6;">
+                <strong style="color:var(--color-primary);">Servicios de Marketing Digital Contratados:</strong><br>
+                Los proyectos se reflejarán en tu Panel de Control del Cliente. Tu ejecutivo de cuentas se comunicará vía WhatsApp en las próximas 2 horas hábiles.
+            </div>
+            <div style="display:flex; gap:10px;">
+                <a href="dashboard.html" class="slide-btn" style="flex:1; text-align:center; padding:12px 0;">Ir al Panel de Control</a>
+                <a href="index.html" class="slide-btn" style="flex:1; text-align:center; padding:12px 0; background:none; border:1px solid var(--color-primary); color:var(--color-primary); box-shadow:none;">Seguir Comprando</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- PIE DE PÁGINA REDUCIDO -->
+    <footer style="padding:40px 5% 20px 5%; font-size:12px; margin-top:50px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; color:#94a3b8;">
+            <p>&copy; 2026 Merkadocom - El mall virtual de Ecuador &amp; Agencia de Marketing. Todos los derechos reservados.</p>
+            <p><i class="fas fa-lock"></i> Servidor Seguro y Protegido</p>
+        </div>
+    </footer>
+
+    <!-- Lógica de Negocio -->
+    <script src="app.js"></script>
+</body>
+</html>

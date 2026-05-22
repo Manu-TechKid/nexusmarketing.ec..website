@@ -1,0 +1,14 @@
+{
+  "name": "merkadocom-website",
+  "version": "1.0.0",
+  "description": "Plataforma E-commerce y Agencia de Marketing - Merkadocom",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.2.0"
+  }
+}

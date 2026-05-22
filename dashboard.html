@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel del cliente de Merkadocom. Realiza el seguimiento de tus proyectos de marketing digital contratados, historial de compras y soporte técnico.">
+    <title>Panel de Control del Cliente | Merkadocom</title>
+    <!-- Estilos base -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- BARRA SUPERIOR (TOP BAR) -->
+    <div class="top-bar">
+        <div>
+            <span><i class="far fa-calendar-alt"></i> Viernes, 22/05/26</span>
+        </div>
+        <ul class="top-bar-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="blog.html">Merkadocom Magazine</a></li>
+            <li><a href="dashboard.html" class="active">Mi Panel</a></li>
+            <li><a href="directory.html">Directorio de Tiendas</a></li>
+        </ul>
+        <div class="top-bar-right">
+            <a href="#" id="whatsapp-float" class="chat-whatsapp">
+                <i class="fab fa-whatsapp"></i> Soporte VIP
+            </a>
+        </div>
+    </div>
+
+    <!-- CABECERA PRINCIPAL (HEADER) -->
+    <header class="main-header" style="border-bottom:1px solid var(--color-border);">
+        <!-- Logotipo -->
+        <a href="index.html" class="logo">
+            <span class="logo-main">merkadocom</span>
+            <span class="logo-sub">Área de Clientes Premium</span>
+        </a>
+        <div style="display:flex; align-items:center; gap:10px;">
+            <div style="text-align:right;">
+                <div style="font-weight:700; font-size:14px; color:var(--color-primary);">Cliente Premium</div>
+                <div style="font-size:11px; color:var(--color-accent-green); font-weight:600;"><i class="fas fa-check-circle"></i> Cuenta Verificada</div>
+            </div>
+            <div style="width:40px; height:40px; border-radius:50%; background-color:var(--color-accent-purple); color:white; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:16px;">
+                CP
+            </div>
+        </div>
+    </header>
+
+    <!-- CUERPO DEL PANEL DE CONTROL (DASHBOARD LAYOUT) -->
+    <main class="dashboard-layout">
+        <!-- Sidebar de Navegación del Panel -->
+        <aside class="dashboard-sidebar">
+            <a href="#" class="db-side-link active" data-section="resumen">
+                <i class="fas fa-home"></i> Resumen General
+            </a>
+            <a href="#" class="db-side-link" data-section="servicios">
+                <i class="fas fa-bullhorn"></i> Marketing Contratado
+            </a>
+            <a href="#" class="db-side-link" data-section="compras">
+                <i class="fas fa-shopping-bag"></i> Historial de Compras
+            </a>
+            <a href="#" class="db-side-link" data-section="soporte">
+                <i class="fas fa-comments"></i> Soporte &amp; Chat
+            </a>
+            <div style="margin-top:50px; padding: 20px; border-top:1px solid var(--color-border); text-align:center;">
+                <p style="font-size:11px; color:var(--color-text-muted); margin-bottom:10px;">¿Necesitas ayuda inmediata?</p>
+                <a href="https://api.whatsapp.com/send?phone=593991818544" target="_blank" class="slide-btn" style="padding:6px 12px; font-size:11px; width:100%; text-align:center; background-color:#25d366;">
+                    <i class="fab fa-whatsapp"></i> Chat WhatsApp
+                </a>
+            </div>
+        </aside>
+
+        <!-- Contenedor Principal de Secciones -->
+        <section class="dashboard-main">
+            
+            <!-- SECCIÓN 1: RESUMEN GENERAL -->
+            <div id="db-sec-resumen">
+                <div class="dashboard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-heading); color:var(--color-primary); font-size:24px;">¡Bienvenido de nuevo, Cliente!</h2>
+                        <p style="font-size:13px; color:var(--color-text-muted);">Aquí tienes el estado actual de tus servicios de marketing y tus compras en el mall virtual.</p>
+                    </div>
+                    <span class="badge badge-green" style="padding:5px 12px; font-size:11px;">Estatus: Activo</span>
+                </div>
+
+                <!-- Tarjetas de Estadísticas de Campañas de Marketing -->
+                <div class="db-stats-grid">
+                    <div class="db-stat-card">
+                        <span class="db-stat-title">Conversión / Clientes</span>
+                        <div class="db-stat-val">+14.2%</div>
+                        <span style="font-size:11px; color:var(--color-accent-green); font-weight:600;"><i class="fas fa-arrow-up"></i> +2.3% esta semana</span>
+                    </div>
+                    <div class="db-stat-card">
+                        <span class="db-stat-title">Clics Totales (Ads)</span>
+                        <div class="db-stat-val">28.4K</div>
+                        <span style="font-size:11px; color:var(--color-accent-green); font-weight:600;"><i class="fas fa-arrow-up"></i> +12% orgánico</span>
+                    </div>
+                    <div class="db-stat-card">
+                        <span class="db-stat-title">Impresiones SEO</span>
+                        <div class="db-stat-val">142.6K</div>
+                        <span style="font-size:11px; color:var(--color-accent-green); font-weight:600;"><i class="fas fa-arrow-up"></i> Top 3 Google Ecuador</span>
+                    </div>
+                </div>
+
+                <!-- Panel de Alertas/Notificaciones -->
+                <div style="background-color:#f5f3ff; border:1px solid #ddd6fe; border-radius:var(--radius-md); padding:18px; margin-bottom:30px; display:flex; gap:15px; align-items:center;">
+                    <div style="font-size:24px; color:var(--color-accent-purple);"><i class="fas fa-magic"></i></div>
+                    <div style="font-size:13px; line-height:1.5;">
+                        <strong style="color:var(--color-primary);">Optimizaciones SEO en curso:</strong> Hemos terminado de reestructurar la velocidad de carga de tu sitio web para mejorar el puntaje móvil. Los resultados se reflejarán en las métricas del buscador en aproximadamente 7 días.
+                    </div>
+                </div>
+
+                <!-- Tabla Corta de Transacciones Recientes -->
+                <h3 style="font-family:var(--font-heading); color:var(--color-primary); font-size:18px; margin-bottom:15px;">Últimas Compras Realizadas</h3>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%; border-collapse:collapse; font-size:13px;">
+                        <thead>
+                            <tr style="background:#f1f5f9; text-align:left; border-bottom:2px solid var(--color-border);">
+                                <th style="padding:12px 15px;">Orden ID</th>
+                                <th style="padding:12px 15px;">Fecha</th>
+                                <th style="padding:12px 15px;">Detalle de Compra</th>
+                                <th style="padding:12px 15px;">Monto Total</th>
+                                <th style="padding:12px 15px;">Estatus</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dashboard-orders-list">
+                            <!-- Inyectado por JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 2: SERVICIOS CONTRATADOS -->
+            <div id="db-sec-servicios" style="display:none;">
+                <div class="dashboard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-heading); color:var(--color-primary); font-size:24px;">Servicios de Marketing Activos</h2>
+                        <p style="font-size:13px; color:var(--color-text-muted);">Sigue el progreso en tiempo real de tus campañas y la entrega de piezas gráficas.</p>
+                    </div>
+                </div>
+
+                <div id="dashboard-services-list" style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+                    <!-- Rellenado dinámicamente con JS según las compras de servicios del cliente -->
+                </div>
+            </div>
+
+            <!-- SECCIÓN 3: HISTORIAL DE COMPRAS -->
+            <div id="db-sec-compras" style="display:none;">
+                <div class="dashboard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-heading); color:var(--color-primary); font-size:24px;">Historial Completo de Transacciones</h2>
+                        <p style="font-size:13px; color:var(--color-text-muted);">Accede y descarga todas tus facturas e historial de órdenes de la pasarela de pagos.</p>
+                    </div>
+                </div>
+
+                <!-- Historial general de órdenes en tabla completa -->
+                <div style="overflow-x:auto;">
+                    <table style="width:100%; border-collapse:collapse; font-size:13px;">
+                        <thead>
+                            <tr style="background:#f1f5f9; text-align:left; border-bottom:2px solid var(--color-border);">
+                                <th style="padding:12px 15px;">Orden ID</th>
+                                <th style="padding:12px 15px;">Fecha de Compra</th>
+                                <th style="padding:12px 15px;">Detalle / Concepto</th>
+                                <th style="padding:12px 15px;">Monto Cobrado</th>
+                                <th style="padding:12px 15px;">Estatus de Factura</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dashboard-orders-list-complete">
+                            <!-- Similar a la anterior, o la misma vinculada por id en el script -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 4: SOPORTE Y CHAT -->
+            <div id="db-sec-soporte" style="display:none;">
+                <div class="dashboard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-heading); color:var(--color-primary); font-size:24px;">Soporte de Consultoría en Vivo</h2>
+                        <p style="font-size:13px; color:var(--color-text-muted);">Escríbele directamente a tu consultor asignado de la Agencia de Marketing.</p>
+                    </div>
+                </div>
+
+                <!-- Simulación de Caja de Chat de Consultoría -->
+                <div style="border:1px solid var(--color-border); border-radius:var(--radius-md); display:flex; flex-direction:column; height:400px; background:#f8fafc; overflow:hidden;">
+                    <!-- Mensajes -->
+                    <div id="chat-messages-container" style="flex-grow:1; overflow-y:auto; padding:20px; display:flex; flex-direction:column; gap:15px;">
+                        <!-- Mensaje de la Agencia -->
+                        <div style="display:flex; gap:10px; max-width:80%;">
+                            <div style="width:30px; height:30px; border-radius:50%; background:var(--color-accent-purple); color:white; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; flex-shrink:0;">
+                                M
+                            </div>
+                            <div style="background:white; border:1px solid var(--color-border); padding:10px 14px; border-radius:0 var(--radius-sm) var(--radius-sm) var(--radius-sm); font-size:13px;">
+                                <strong style="color:var(--color-primary); display:block; margin-bottom:3px; font-size:11px;">Consultor de Mercadocom</strong>
+                                Hola, bienvenido a tu chat de consultoría de marketing. ¿Tienes alguna pregunta sobre el avance del Plan SEO o la grilla de publicaciones para redes sociales?
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Input del Chat -->
+                    <div style="background:white; border-top:1px solid var(--color-border); padding:15px; display:flex; gap:10px;">
+                        <input type="text" id="chat-input" placeholder="Escribe tu mensaje aquí..." style="flex-grow:1; border-radius:var(--radius-full);">
+                        <button onclick="sendChatMessage()" class="slide-btn" style="border-radius:var(--radius-full); padding: 10px 20px; font-size:14px; box-shadow:none;">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA REDUCIDO -->
+    <footer style="padding:40px 5% 20px 5%; font-size:12px; margin-top:50px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; color:#94a3b8;">
+            <p>&copy; 2026 Merkadocom - El mall virtual de Ecuador &amp; Agencia de Marketing. Todos los derechos reservados.</p>
+            <p><a href="index.html" style="color:#94a3b8; text-decoration:underline;">Volver a la Tienda</a></p>
+        </div>
+    </footer>
+
+    <!-- Lógica de Negocio -->
+    <script src="app.js"></script>
+    <script>
+        // Lógica local para el chat del panel
+        function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const msgContainer = document.getElementById('chat-messages-container');
+            if (!input || !input.value.trim() || !msgContainer) return;
+
+            const text = input.value.trim();
+            input.value = '';
+
+            // Renderizar mensaje del usuario
+            const userMsg = document.createElement('div');
+            userMsg.style.cssText = 'display:flex; gap:10px; max-width:80%; align-self:flex-end; flex-direction:row-reverse;';
+            userMsg.innerHTML = `
+                <div style="width:30px; height:30px; border-radius:50%; background:var(--color-primary); color:white; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; flex-shrink:0;">
+                    YO
+                </div>
+                <div style="background:var(--color-accent-purple); color:white; padding:10px 14px; border-radius:var(--radius-sm) 0 var(--radius-sm) var(--radius-sm); font-size:13px; text-align:right;">
+                    ${text}
+                </div>
+            `;
+            msgContainer.appendChild(userMsg);
+            msgContainer.scrollTop = msgContainer.scrollHeight;
+
+            // Simular respuesta automática de la agencia en 1.5s
+            setTimeout(() => {
+                const agencyMsg = document.createElement('div');
+                agencyMsg.style.cssText = 'display:flex; gap:10px; max-width:80%;';
+                agencyMsg.innerHTML = `
+                    <div style="width:30px; height:30px; border-radius:50%; background:var(--color-accent-purple); color:white; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; flex-shrink:0;">
+                        M
+                    </div>
+                    <div style="background:white; border:1px solid var(--color-border); padding:10px 14px; border-radius:0 var(--radius-sm) var(--radius-sm) var(--radius-sm); font-size:13px;">
+                        <strong style="color:var(--color-primary); display:block; margin-bottom:3px; font-size:11px;">Consultor de Mercadocom</strong>
+                        Entendido. He recibido tu mensaje sobre "${text}". Lo estoy compartiendo con el equipo técnico de desarrollo y te responderemos formalmente en la brevedad posible.
+                    </div>
+                `;
+                msgContainer.appendChild(agencyMsg);
+                msgContainer.scrollTop = msgContainer.scrollHeight;
+            }, 1500);
+        }
+
+        // Lógica de sincronización de la tabla duplicada de compras completa
+        document.addEventListener('DOMContentLoaded', () => {
+            const completeTable = document.getElementById('dashboard-orders-list-complete');
+            if (completeTable) {
+                const orders = JSON.parse(localStorage.getItem('merkadocom_orders')) || [];
+                if (orders.length === 0) {
+                    completeTable.innerHTML = `
+                        <tr>
+                            <td colspan="5" style="text-align:center; padding:30px; color:var(--color-text-muted);">
+                                No se encontraron transacciones en tu cuenta.
+                            </td>
+                        </tr>
+                    `;
+                } else {
+                    completeTable.innerHTML = orders.map(ord => {
+                        const itemsNames = ord.items.map(it => `${it.name} (x${it.quantity})`).join(', ');
+                        return `
+                            <tr>
+                                <td style="padding:15px; font-weight:700; color:var(--color-primary);">${ord.id}</td>
+                                <td style="padding:15px; color:var(--color-text-muted);">${ord.date}</td>
+                                <td style="padding:15px;">${itemsNames}</td>
+                                <td style="padding:15px; font-weight:700;">$${ord.total.toFixed(2)} USD</td>
+                                <td style="padding:15px;"><span class="badge badge-green" style="background-color:#d1fae5; color:#065f46;">PAGADO</span></td>
+                            </tr>
+                        `;
+                    }).join('');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

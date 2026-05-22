@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Merkadocom - El mall virtual de Ecuador. Compra productos premium con pasarela de pagos segura y contrata servicios de marketing digital avanzados para impulsar tu marca.">
+    <title>Merkadocom | El mall virtual de Ecuador & Agencia de Marketing</title>
+    <!-- Estilos base -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Iconos FontAwesome (Respaldo) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- BARRA SUPERIOR (TOP BAR) -->
+    <div class="top-bar">
+        <div>
+            <span id="current-date"><i class="far fa-calendar-alt"></i> Viernes, 22/05/26</span>
+        </div>
+        <ul class="top-bar-links">
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="blog.html">Merkadocom Magazine</a></li>
+            <li><a href="dashboard.html">Mi Panel</a></li>
+            <li><a href="directory.html">Directorio de Tiendas</a></li>
+        </ul>
+        <div class="top-bar-right">
+            <a href="#" id="whatsapp-float" class="chat-whatsapp">
+                <i class="fab fa-whatsapp"></i> Chat WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- CABECERA PRINCIPAL (HEADER) -->
+    <header class="main-header">
+        <!-- Logotipo -->
+        <a href="index.html" class="logo" id="header-logo">
+            <span class="logo-main">merkadocom</span>
+            <span class="logo-sub">El mall virtual de Ecuador</span>
+        </a>
+
+        <!-- Botón Menú de Categorías (Drawer) -->
+        <button id="trigger-categories" class="search-category-btn" style="border: 1px solid var(--color-border); border-radius: var(--radius-sm); height: 42px;">
+            <i class="fas fa-bars"></i> Categorías <i class="fas fa-chevron-down" style="font-size:10px;"></i>
+        </button>
+
+        <!-- Buscador Avanzado -->
+        <form id="search-form" class="search-container">
+            <input type="text" id="search-input" class="search-input" placeholder="planchas de ropa, planchas, ninja, seo..." aria-label="Buscador de productos">
+            <button type="button" class="search-voice-btn" onclick="showToast('Búsqueda por voz activada (Simulación)')" aria-label="Búsqueda por voz">
+                <i class="fas fa-microphone"></i>
+            </button>
+            <button type="submit" class="search-submit-btn" aria-label="Buscar">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+
+        <!-- Acceso y Contacto -->
+        <div class="header-actions">
+            <a href="tel:+593991818544" class="header-phone">
+                <i class="fas fa-phone-alt"></i>
+                <span>+593 99 181 8544</span>
+            </a>
+            
+            <div class="header-icons">
+                <a href="dashboard.html" class="header-icon-btn" title="Rendimiento / Reportes" aria-label="Estadísticas">
+                    <i class="fas fa-chart-line"></i>
+                </a>
+                <button class="header-icon-btn" onclick="showToast('Lista de deseos vacía')" title="Lista de deseos" aria-label="Favoritos">
+                    <i class="far fa-heart"></i>
+                </button>
+                <a href="dashboard.html" class="header-icon-btn" title="Mi Cuenta" aria-label="Mi Cuenta">
+                    <i class="far fa-user"></i>
+                </a>
+                
+                <!-- Gatillo Carrito -->
+                <button id="trigger-cart" class="header-icon-btn" title="Ver Carrito" aria-label="Carrito de compras">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="icon-badge cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MENÚ DRAWER LATERAL (CATEGORÍAS - IZQUIERDA) -->
+    <div id="drawer-overlay" class="drawer-overlay"></div>
+    <div id="category-drawer" class="drawer">
+        <div class="drawer-header">
+            <h3 class="logo-main" style="font-size:22px;">merkadocom</h3>
+            <button id="drawer-close" class="drawer-close" aria-label="Cerrar menú"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="drawer-content">
+            <ul class="drawer-menu-list">
+                <li class="drawer-menu-item"><a href="index.html" class="drawer-menu-link"><strong>Volver al Inicio</strong></a></li>
+                <li class="drawer-menu-item">
+                    <a href="#" class="drawer-menu-link" onclick="renderCatalog('Electrodomésticos'); document.getElementById('drawer-close').click(); event.preventDefault();">
+                        <span>Ninja <span class="badge badge-green">Lo nuevo</span></span> <i class="fas fa-chevron-right"></i>
+                    </a>
+                </li>
+                <li class="drawer-menu-item">
+                    <a href="#" class="drawer-menu-link" onclick="renderCatalog('Todos'); document.getElementById('drawer-close').click(); event.preventDefault();">
+                        <span>Regreso a Clases <span class="badge badge-red">Ofertas</span></span> <i class="fas fa-chevron-right"></i>
+                    </a>
+                </li>
+                <li class="drawer-menu-item">
+                    <a href="#" class="drawer-menu-link" onclick="renderCatalog('Electrónica'); document.getElementById('drawer-close').click(); event.preventDefault();">
+                        <span>Lo Nuevo <span class="badge badge-yellow">Novedades</span></span> <i class="fas fa-chevron-right"></i>
+                    </a>
+                </li>
+                <li class="drawer-menu-item">
+                    <a href="#" class="drawer-menu-link" onclick="renderCatalog('Servicios de Marketing'); document.getElementById('drawer-close').click(); event.preventDefault();">
+                        <span>Servicios de Marketing <span class="badge badge-cyan">Agencia</span></span> <i class="fas fa-chevron-right"></i>
+                    </a>
+                </li>
+                <li class="drawer-menu-item" style="padding: 15px 20px; font-size:11px; text-transform:uppercase; color:var(--color-text-muted); font-weight:700; border-top:1px solid var(--color-border);">
+                    Categorías Generales
+                </li>
+                <li class="drawer-menu-item">
+                    <a href="#" class="drawer-menu-link" onclick="renderCatalog('Electrónica'); document.getElementById('drawer-close').click(); event.preventDefault();">
+                        Audio y Video <i class="fas fa-chevron-right"></i>
+                    </a>
+                </li>
+                <li class="drawer-menu-item">
+                    <a href="#" class="drawer-menu-link" onclick="showToast('Sección Autos próximamente en catálogo'); event.preventDefault();">
+                        Autos <i class="fas fa-chevron-right"></i>
+                    </a>
+                </li>
+                <li class="drawer-menu-item">
+                    <a href="#" class="drawer-menu-link" onclick="showToast('Sección Artículos Religiosos próximamente en catálogo'); event.preventDefault();">
+                        Artículos Religiosos <i class="fas fa-chevron-right"></i>
+                    </a>
+                </li>
+                <li class="drawer-menu-item">
+                    <a href="#" class="drawer-menu-link" onclick="showToast('Sección Deportes próximamente en catálogo'); event.preventDefault();">
+                        Deportes e Interiores <i class="fas fa-chevron-right"></i>
+                    </a>
+                </li>
+                <li class="drawer-menu-item">
+                    <a href="#" class="drawer-menu-link" onclick="renderCatalog('Electrodomésticos'); document.getElementById('drawer-close').click(); event.preventDefault();">
+                        Electrodomésticos <i class="fas fa-chevron-right"></i>
+                    </a>
+                </li>
+                <li class="drawer-menu-item">
+                    <a href="#" class="drawer-menu-link" onclick="renderCatalog('Electrónica'); document.getElementById('drawer-close').click(); event.preventDefault();">
+                        Electrónica y PCs <i class="fas fa-chevron-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CARRITO DRAWER LATERAL (DERECHA) -->
+    <div id="cart-overlay" class="cart-overlay"></div>
+    <div id="cart-drawer" class="cart-drawer">
+        <div class="cart-header">
+            <h3 class="cart-title">Mi Carrito de Compras</h3>
+            <button id="cart-close" class="cart-close" aria-label="Cerrar carrito"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="cart-items-list" class="cart-items-container">
+            <!-- Cargado dinámicamente -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-summary-row">
+                <span>Subtotal:</span>
+                <span class="cart-total-val">$0.00 USD</span>
+            </div>
+            <div class="cart-summary-row">
+                <span>Envío / Comisión:</span>
+                <span>Gratis / $0.00</span>
+            </div>
+            <div class="cart-summary-row total">
+                <span>Total:</span>
+                <span class="cart-total-val">$0.00 USD</span>
+            </div>
+            <a href="checkout.html" id="cart-checkout-btn" class="checkout-btn" style="display:block; text-align:center;">
+                Proceder a la Pasarela de Pago
+            </a>
+        </div>
+    </div>
+
+    <!-- CARRUSEL PRINCIPAL (HERO SLIDER) -->
+    <section class="hero-slider-section">
+        <div class="slider-container">
+            <!-- Slide 1: Ninja Extractor (Comercial / Ecuador) -->
+            <div class="slide active" style="background: var(--gradient-banner);">
+                <div class="slide-content">
+                    <span class="slide-badge" style="background-color: var(--color-accent-green);">Ninja - Lo Nuevo</span>
+                    <h1 class="slide-title">Extractor<br><span style="color:var(--color-accent-purple);">Ninja MJ151</span></h1>
+                    <p class="slide-desc">Prepara extractos de jugos naturales sin esfuerzo, conservando el 100% de los nutrientes. Motor súper potente y silencioso.</p>
+                    <div class="slide-price-tag">
+                        <span>DIFIÉRELO con tus tarjetas en:</span>
+                        <div class="slide-price-val">12 cuotas de $21 <span style="font-size:16px;">USD</span></div>
+                    </div>
+                    <button class="slide-btn" onclick="CartManager.addItem('prod-ninja-extractor')">Añadir al Carrito - $252.00</button>
+                </div>
+                <div class="slide-image">
+                    <!-- Ninja Extractor Image -->
+                    <img src="images/ninja_extractor.png" alt="Extractor Ninja MJ151">
+                </div>
+            </div>
+
+            <!-- Slide 2: Agencia de Marketing (Servicios / Digitales) -->
+            <div class="slide" style="background: linear-gradient(135deg, #eae5fc 0%, #dbd4f9 100%);">
+                <div class="slide-content">
+                    <span class="slide-badge" style="background-color: var(--color-accent-purple);">Mercadocom Agency</span>
+                    <h2 class="slide-title" style="font-size:38px;">Multiplica las Ventas<br>de tu Negocio</h2>
+                    <p class="slide-desc">Posicionamiento SEO, Diseño de Tiendas Web, y Gestión de Redes Sociales profesionales. Diseñado para empresas de Ecuador y el mundo.</p>
+                    <div class="slide-price-tag">
+                        <span>Planes mensuales desde:</span>
+                        <div class="slide-price-val">$300 <span style="font-size:16px;">USD/mes</span></div>
+                    </div>
+                    <a href="nosotros.html" class="slide-btn" style="background-color: var(--color-accent-purple);">Ver Servicios de Marketing</a>
+                </div>
+                <div class="slide-image">
+                    <img src="images/agency_banner.png" alt="Servicios de Marketing Digital" style="border-radius: var(--radius-md); box-shadow: var(--shadow-lg);">
+                </div>
+            </div>
+
+            <!-- Flechas de Control -->
+            <button id="slider-prev" class="slider-arrow slider-prev" aria-label="Banner anterior"><i class="fas fa-chevron-left"></i></button>
+            <button id="slider-next" class="slider-arrow slider-next" aria-label="Siguiente banner"><i class="fas fa-chevron-right"></i></button>
+
+            <!-- Indicadores (Dots) -->
+            <div id="slider-dots" class="slider-dots"></div>
+        </div>
+    </section>
+
+    <!-- CATEGORÍAS RÁPIDAS -->
+    <section class="quick-categories">
+        <a href="#" class="quick-cat-card" onclick="renderCatalog('Todos'); event.preventDefault();">
+            <div class="quick-cat-icon"><i class="fas fa-th-large"></i></div>
+            <span class="quick-cat-name">Ver Todos</span>
+        </a>
+        <a href="#" class="quick-cat-card" onclick="renderCatalog('Servicios de Marketing'); event.preventDefault();">
+            <div class="quick-cat-icon" style="background-color: #f5f3ff; color: var(--color-accent-purple);"><i class="fas fa-bullhorn"></i></div>
+            <span class="quick-cat-name">Marketing Digital</span>
+        </a>
+        <a href="#" class="quick-cat-card" onclick="renderCatalog('Electrodomésticos'); event.preventDefault();">
+            <div class="quick-cat-icon"><i class="fas fa-blender"></i></div>
+            <span class="quick-cat-name">Electrodomésticos</span>
+        </a>
+        <a href="#" class="quick-cat-card" onclick="renderCatalog('Electrónica'); event.preventDefault();">
+            <div class="quick-cat-icon"><i class="fas fa-laptop"></i></div>
+            <span class="quick-cat-name">Electrónica y TVs</span>
+        </a>
+        <a href="directory.html" class="quick-cat-card">
+            <div class="quick-cat-icon"><i class="fas fa-store"></i></div>
+            <span class="quick-cat-name">Ver Tiendas</span>
+        </a>
+        <a href="blog.html" class="quick-cat-card">
+            <div class="quick-cat-icon"><i class="fas fa-newspaper"></i></div>
+            <span class="quick-cat-name">Magazine</span>
+        </a>
+    </section>
+
+    <!-- SECCIÓN CATÁLOGO DE PRODUCTOS Y SERVICIOS -->
+    <main class="catalog-section">
+        <div class="section-header">
+            <h2 class="section-title">Servicios y Productos Destacados</h2>
+            <div class="section-tabs">
+                <button class="section-tab-btn active" data-category="Todos">Todos</button>
+                <button class="section-tab-btn" data-category="Servicios de Marketing">Servicios de Marketing</button>
+                <button class="section-tab-btn" data-category="Electrodomésticos">Electrodomésticos</button>
+                <button class="section-tab-btn" data-category="Electrónica">Electrónica</button>
+            </div>
+        </div>
+
+        <!-- Grid de Items -->
+        <div id="catalog-grid" class="products-grid">
+            <!-- Cargado dinámicamente con JavaScript -->
+        </div>
+    </main>
+
+    <!-- MODAL DE DETALLES DEL PRODUCTO / SERVICIO -->
+    <div id="product-modal" class="modal-overlay">
+        <div class="modal-container">
+            <button id="modal-close" class="modal-close-btn" aria-label="Cerrar modal"><i class="fas fa-times"></i></button>
+            <div id="modal-body-content">
+                <!-- Rellenado dinámicamente en app.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- PIE DE PÁGINA (FOOTER) -->
+    <footer>
+        <div class="footer-grid">
+            <!-- Columna 1 -->
+            <div>
+                <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                    <span class="logo-main" style="color: #ffffff;">merkadocom</span>
+                    <span class="logo-sub" style="color: #94a3b8;">El mall virtual de Ecuador</span>
+                </a>
+                <p style="font-size: 13px; color: #94a3b8; line-height: 1.6; margin-top: 10px;">
+                    La plataforma que unifica lo mejor del comercio electrónico y los servicios de crecimiento empresarial para toda la región.
+                </p>
+                <div style="display:flex; gap: 15px; margin-top: 20px; font-size: 18px;">
+                    <a href="#" style="color:#94a3b8;" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" style="color:#94a3b8;" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color:#94a3b8;" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" style="color:#94a3b8;" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <!-- Columna 2 -->
+            <div>
+                <h4 class="footer-column-title">Agencia de Marketing</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Plan SEO Web Corporativo</a></li>
+                    <li><a href="index.html">Gestión de Redes Sociales</a></li>
+                    <li><a href="index.html">Diseño Web Ecommerce</a></li>
+                    <li><a href="index.html">Campañas en Google &amp; Meta Ads</a></li>
+                    <li><a href="nosotros.html">Nuestros Casos de Éxito</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3 -->
+            <div>
+                <h4 class="footer-column-title">Categorías de Compra</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Extractor Ninja</a></li>
+                    <li><a href="index.html">Electrodomésticos de Cocina</a></li>
+                    <li><a href="index.html">Televisores Smart TV</a></li>
+                    <li><a href="index.html">Audífonos y Audio Pro</a></li>
+                    <li><a href="directory.html">Directorio de Tiendas</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 4 -->
+            <div>
+                <h4 class="footer-column-title">Contacto y Soporte</h4>
+                <ul class="footer-links" style="color: #94a3b8; font-size:13px;">
+                    <li><i class="fas fa-envelope"></i> soporte@merkadocom.com</li>
+                    <li><i class="fas fa-phone-alt"></i> +593 99 181 8544</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Av. De los Shyris, Quito, Ecuador</li>
+                    <li><i class="far fa-clock"></i> Lun - Sáb: 9:00 AM - 7:00 PM</li>
+                    <li style="margin-top:10px;"><span class="badge badge-green" style="margin-left:0; font-size:10px;">Atención en Línea</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Merkadocom - El mall virtual de Ecuador. Todos los derechos reservados. Desarrollado por Mercadocom Agency.</p>
+            <p>
+                <a href="#" style="color:#64748b; margin-right:15px;">Privacidad</a>
+                <a href="#" style="color:#64748b;">Términos de Servicio</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Lógica de Negocio -->
+    <script src="app.js"></script>
+</body>
+</html>
