@@ -1467,7 +1467,7 @@ header {
    ========================================================================== */
 
 footer {
-    background-color: var(--color-primary);
+    background-color: #020617; /* Fix legibilidad en modo oscuro */
     color: #e2e8f0;
     padding: 60px 5% 30px 5%;
     font-size: 14px;

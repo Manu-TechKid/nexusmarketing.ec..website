@@ -203,6 +203,12 @@
                     <!-- Rellenado dinámicamente -->
                 </div>
 
+                <!-- Promo Code Box -->
+                <div style="display:flex; gap:10px; margin-bottom:15px; border-top:1px dashed var(--color-border); padding-top:15px;">
+                    <input type="text" id="promo-code-input" placeholder="Ej. NEXUS2026" style="flex-grow:1; background-color:rgba(15,23,42,0.8); border:1px solid var(--color-border); color:white;">
+                    <button type="button" class="checkout-btn" style="padding: 10px 15px; font-size:13px; margin:0;" onclick="PromoSystem.applyCode(document.getElementById('promo-code-input').value)">Aplicar</button>
+                </div>
+
                 <div style="display:flex; flex-direction:column; gap:8px; font-size:13px; border-top:1px solid var(--color-border); padding-top:15px;">
                     <div style="display:flex; justify-content:space-between;">
                         <span>Subtotal Neto:</span>

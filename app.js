@@ -264,7 +264,12 @@ const CartManager = {
             count += item.quantity;
             total += item.price * item.quantity;
         });
-        return { count, total };
+        const subtotal = total;
+        // Aplicar descuento promocional si existe
+        if (window.PromoSystem && window.PromoSystem.discount > 0) {
+            total = total * (1 - window.PromoSystem.discount);
+        }
+        return { count, total, subtotal };
     },
 
     // Renderizar Carrito en la interfaz
@@ -652,11 +657,26 @@ function initCheckout() {
             `;
         }).join('');
 
-        const subtotal = totals.total;
-        const tax = subtotal * 0.12; // 12% IVA Ecuador
-        const finalTotal = subtotal + tax;
+        const subtotal = totals.subtotal;
+        const discountAmt = totals.subtotal - totals.total;
+        const totalAfterDiscount = totals.total;
+        const tax = totalAfterDiscount * 0.12; // 12% IVA Ecuador
+        const finalTotal = totalAfterDiscount + tax;
 
         document.getElementById('checkout-subtotal').textContent = `$${subtotal.toFixed(2)} USD`;
+        if (discountAmt > 0) {
+            let discountEl = document.getElementById('checkout-discount-row');
+            if(!discountEl) {
+                document.getElementById('checkout-subtotal').parentElement.insertAdjacentHTML('afterend', `
+                    <div id="checkout-discount-row" style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:8px; color:var(--color-accent-green);">
+                        <span>Descuento Promocional:</span>
+                        <span id="checkout-discount">-$${discountAmt.toFixed(2)} USD</span>
+                    </div>
+                `);
+            } else {
+                document.getElementById('checkout-discount').textContent = `-$${discountAmt.toFixed(2)} USD`;
+            }
+        }
         document.getElementById('checkout-tax').textContent = `$${tax.toFixed(2)} USD`;
         document.getElementById('checkout-total').textContent = `$${finalTotal.toFixed(2)} USD`;
     };
@@ -1032,3 +1052,34 @@ styleSheet.innerText = `
 }
 `;
 document.head.appendChild(styleSheet);
+
+// ==========================================================================
+// NUEVO SISTEMA DE PROMOCIONES (PROMO CODES)
+// ==========================================================================
+window.PromoSystem = {
+    discount: 0,
+    applyCode: function(code) {
+        if (code.toUpperCase() === "NEXUS2026") {
+            this.discount = 0.15; // 15% de descuento
+            showToast("Cupón NEXUS2026 aplicado: 15% de descuento", "success");
+            CartManager.updateUI();
+            if(document.getElementById('checkout-order-items')) {
+                // Forzar re-render en checkout
+                const evt = new Event('DOMContentLoaded');
+                document.dispatchEvent(evt);
+            }
+        } else {
+            showToast("Código promocional inválido", "error");
+        }
+    }
+};
+
+// ==========================================================================
+// EXPORTACIÓN GLOBAL PARA HTML INLINE ONCLICK (SOLUCIÓN A VITE MODULES)
+// ==========================================================================
+window.CartManager = CartManager;
+window.renderCatalog = renderCatalog;
+window.showToast = showToast;
+window.openProductDetail = openProductDetail;
+window.sendChatMessage = typeof sendChatMessage !== 'undefined' ? sendChatMessage : function() { showToast('Mensaje enviado') };
+window.PromoSystem = window.PromoSystem;
