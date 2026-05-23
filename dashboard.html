@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Panel del cliente de Merkadocom. Realiza el seguimiento de tus proyectos de marketing digital contratados, historial de compras y soporte técnico.">
-    <title>Panel de Control del Cliente | Merkadocom</title>
+    <meta name="description" content="Panel del cliente de Nexus Marketing. Realiza el seguimiento de tus proyectos de marketing digital contratados, historial de compras y soporte técnico.">
+    <title>Panel de Control del Cliente | Nexus Marketing</title>
     <!-- Estilos base -->
     <link rel="stylesheet" href="styles.css">
     <!-- Iconos FontAwesome -->
@@ -20,7 +20,7 @@
         <ul class="top-bar-links">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="nosotros.html">Nosotros</a></li>
-            <li><a href="blog.html">Merkadocom Magazine</a></li>
+            <li><a href="blog.html">Nexus Marketing Magazine</a></li>
             <li><a href="dashboard.html" class="active">Mi Panel</a></li>
             <li><a href="directory.html">Directorio de Tiendas</a></li>
         </ul>
@@ -35,7 +35,7 @@
     <header class="main-header" style="border-bottom:1px solid var(--color-border);">
         <!-- Logotipo -->
         <a href="index.html" class="logo">
-            <span class="logo-main">merkadocom</span>
+            <span class="logo-main">Nexus Marketing</span>
             <span class="logo-sub">Área de Clientes Premium</span>
         </a>
         <div style="display:flex; align-items:center; gap:10px;">
@@ -216,7 +216,7 @@
     <!-- PIE DE PÁGINA REDUCIDO -->
     <footer style="padding:40px 5% 20px 5%; font-size:12px; margin-top:50px;">
         <div style="display:flex; justify-content:space-between; align-items:center; color:#94a3b8;">
-            <p>&copy; 2026 Merkadocom - El mall virtual de Ecuador &amp; Agencia de Marketing. Todos los derechos reservados.</p>
+            <p>&copy; 2026 Nexus Marketing - El mall virtual de Ecuador &amp; Agencia de Marketing. Todos los derechos reservados.</p>
             <p><a href="index.html" style="color:#94a3b8; text-decoration:underline;">Volver a la Tienda</a></p>
         </div>
     </footer>
@@ -269,7 +269,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const completeTable = document.getElementById('dashboard-orders-list-complete');
             if (completeTable) {
-                const orders = JSON.parse(localStorage.getItem('merkadocom_orders')) || [];
+                const orders = JSON.parse(localStorage.getItem('Nexus Marketing_orders')) || [];
                 if (orders.length === 0) {
                     completeTable.innerHTML = `
                         <tr>

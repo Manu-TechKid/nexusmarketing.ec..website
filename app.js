@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LÓGICA JAVASCRIPT GLOBAL - MERKADOCOM & AGENCIA MARKETING
+   LÓGICA JAVASCRIPT GLOBAL - Nexus Marketing & AGENCIA MARKETING
    ========================================================================== */
 
 // Base de datos de productos y servicios (Enfoque Híbrido)
@@ -15,7 +15,7 @@ const catalogItems = [
         badgeClass: "badge-green",
         image: "images/ninja_extractor.png",
         installments: "12 cuotas de $21 USD",
-        description: "Llegaron los productos NINJA a Merkadocom. Descubre tecnología, potencia y calidad para tu cocina. El extractor de jugos Ninja MJ151 te permite extraer jugos naturales sin esfuerzo, conservando nutrientes y con un motor ultra potente de alto rendimiento."
+        description: "Llegaron los productos NINJA a Nexus Marketing. Descubre tecnología, potencia y calidad para tu cocina. El extractor de jugos Ninja MJ151 te permite extraer jugos naturales sin esfuerzo, conservando nutrientes y con un motor ultra potente de alto rendimiento."
     },
     {
         id: "serv-seo-premium",
@@ -113,7 +113,7 @@ const catalogItems = [
 // Base de datos de tiendas afiliadas (Directorio)
 const directoryStores = [
     { id: "store-ninja", name: "Ninja Oficial Ecuador", category: "Electrodomésticos", rating: 5, logoText: "N", productsCount: 15, meta: "Vendedor Autorizado" },
-    { id: "store-merkadocom-marketing", name: "Mercadocom Agency", category: "Servicios Digitales", rating: 5, logoText: "MA", productsCount: 12, meta: "Agencia Principal" },
+    { id: "store-Nexus Marketing-marketing", name: "Mercadocom Agency", category: "Servicios Digitales", rating: 5, logoText: "MA", productsCount: 12, meta: "Agencia Principal" },
     { id: "store-samsung", name: "Samsung Store", category: "Electrónica", rating: 4.8, logoText: "S", productsCount: 42, meta: "Distribuidor Platino" },
     { id: "store-electromundo", name: "ElectroMundo", category: "Hogar", rating: 4.5, logoText: "EM", productsCount: 30, meta: "Tienda Verificada" },
     { id: "store-fashionecu", name: "Fashion Ecuador", category: "Moda y Ropa", rating: 4.2, logoText: "FE", productsCount: 22, meta: "Tienda de Ropa" },
@@ -146,7 +146,7 @@ const blogArticles = [
 ];
 
 // Inicialización de Variables de Carrito
-let cart = JSON.parse(localStorage.getItem('merkadocom_cart')) || [];
+let cart = JSON.parse(localStorage.getItem('Nexus Marketing_cart')) || [];
 let currentSlide = 0;
 
 // ==========================================================================
@@ -252,7 +252,7 @@ const CartManager = {
 
     // Guardar en LocalStorage y Actualizar Interfaz
     saveAndSync: function() {
-        localStorage.setItem('merkadocom_cart', JSON.stringify(cart));
+        localStorage.setItem('Nexus Marketing_cart', JSON.stringify(cart));
         this.updateUI();
     },
 
@@ -772,7 +772,7 @@ function initCheckout() {
 
             setTimeout(() => {
                 // Registrar la orden en localStorage para el panel del cliente
-                const orders = JSON.parse(localStorage.getItem('merkadocom_orders')) || [];
+                const orders = JSON.parse(localStorage.getItem('Nexus Marketing_orders')) || [];
                 const totals = CartManager.getTotals();
                 const newOrder = {
                     id: 'ORD-' + Math.floor(100000 + Math.random() * 900000),
@@ -785,7 +785,7 @@ function initCheckout() {
                 };
 
                 orders.push(newOrder);
-                localStorage.setItem('merkadocom_orders', JSON.stringify(orders));
+                localStorage.setItem('Nexus Marketing_orders', JSON.stringify(orders));
 
                 // Limpiar carrito
                 CartManager.clear();
@@ -812,7 +812,7 @@ function initDashboard() {
     const servicesList = document.getElementById('dashboard-services-list');
     if (!ordersList && !servicesList) return; // No en página dashboard
 
-    const orders = JSON.parse(localStorage.getItem('merkadocom_orders')) || [];
+    const orders = JSON.parse(localStorage.getItem('Nexus Marketing_orders')) || [];
 
     // Renderizar ordenes de compra
     if (ordersList) {
