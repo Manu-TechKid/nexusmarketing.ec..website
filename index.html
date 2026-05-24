@@ -34,9 +34,12 @@
     <!-- CABECERA PRINCIPAL (HEADER) -->
     <header class="main-header">
         <!-- Logotipo -->
-        <a href="index.html" class="logo" id="header-logo">
-            <span class="logo-main">Nexus Marketing</span>
-            <span class="logo-sub">El mall virtual de Ecuador</span>
+        <a href="index.html" class="logo" id="header-logo" style="display:flex; flex-direction:row; align-items:center; gap:10px; text-decoration:none;">
+            <img src="images/logo.png" alt="Nexus Marketing Logo" style="height:40px; width:40px; object-fit:cover; border-radius:50%; border: 1px solid var(--color-border);">
+            <div style="display:flex; flex-direction:column;">
+                <span class="logo-main" style="font-size:22px; line-height:1.1; margin:0;">Nexus Marketing</span>
+                <span class="logo-sub" style="font-size:8px; margin:0;">El mall virtual de Ecuador</span>
+            </div>
         </a>
 
         <!-- Botón Menú de Categorías (Drawer) -->
@@ -47,7 +50,7 @@
         <!-- Buscador Avanzado -->
         <form id="search-form" class="search-container">
             <input type="text" id="search-input" class="search-input" placeholder="planchas de ropa, planchas, ninja, seo..." aria-label="Buscador de productos">
-            <button type="button" class="search-voice-btn" onclick="showToast('Búsqueda por voz activada (Simulación)')" aria-label="Búsqueda por voz">
+            <button type="button" class="search-voice-btn" aria-label="Búsqueda por voz">
                 <i class="fas fa-microphone"></i>
             </button>
             <button type="submit" class="search-submit-btn" aria-label="Buscar">
@@ -57,17 +60,18 @@
 
         <!-- Acceso y Contacto -->
         <div class="header-actions">
-            <a href="tel:+593991818544" class="header-phone">
+            <a href="tel:+593986903129" class="header-phone">
                 <i class="fas fa-phone-alt"></i>
-                <span>+593 99 181 8544</span>
+                <span>+593 98 690 3129</span>
             </a>
             
             <div class="header-icons">
                 <a href="dashboard.html" class="header-icon-btn" title="Rendimiento / Reportes" aria-label="Estadísticas">
                     <i class="fas fa-chart-line"></i>
                 </a>
-                <button class="header-icon-btn" onclick="showToast('Lista de deseos vacía')" title="Lista de deseos" aria-label="Favoritos">
+                <button class="header-icon-btn" onclick="WishlistManager.showDrawer()" title="Lista de deseos" aria-label="Favoritos">
                     <i class="far fa-heart"></i>
+                    <span class="icon-badge wishlist-count">0</span>
                 </button>
                 <a href="dashboard.html" class="header-icon-btn" title="Mi Cuenta" aria-label="Mi Cuenta">
                     <i class="far fa-user"></i>
@@ -177,6 +181,17 @@
             </a>
         </div>
     </div>
+    <!-- WISHLIST DRAWER LATERAL (DERECHA) -->
+    <div id="wishlist-overlay" class="wishlist-overlay" onclick="document.getElementById('wishlist-drawer').classList.remove('active'); this.classList.remove('active');"></div>
+    <div id="wishlist-drawer" class="wishlist-drawer">
+        <div class="wishlist-header">
+            <h3 class="wishlist-title"><i class="far fa-heart" style="color:var(--color-accent-red); margin-right:8px;"></i> Mi Lista de Deseos</h3>
+            <button class="wishlist-close" onclick="document.getElementById('wishlist-drawer').classList.remove('active'); document.getElementById('wishlist-overlay').classList.remove('active');" aria-label="Cerrar lista de deseos"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="wishlist-items-list" class="wishlist-items-container">
+            <!-- Cargado dinámicamente -->
+        </div>
+    </div>
 
     <!-- CARRUSEL PRINCIPAL (HERO SLIDER) -->
     <section class="hero-slider-section">
@@ -187,11 +202,7 @@
                     <span class="slide-badge" style="background-color: var(--color-accent-green);">Ninja - Lo Nuevo</span>
                     <h1 class="slide-title">Extractor<br><span style="color:var(--color-accent-purple);">Ninja MJ151</span></h1>
                     <p class="slide-desc">Prepara extractos de jugos naturales sin esfuerzo, conservando el 100% de los nutrientes. Motor súper potente y silencioso.</p>
-                    <div class="slide-price-tag">
-                        <span>DIFIÉRELO con tus tarjetas en:</span>
-                        <div class="slide-price-val">12 cuotas de $21 <span style="font-size:16px;">USD</span></div>
-                    </div>
-                    <button class="slide-btn" onclick="CartManager.addItem('prod-ninja-extractor')">Añadir al Carrito - $252.00</button>
+                    <button class="slide-btn" onclick="CartManager.addItem('prod-ninja-extractor')">Añadir al Carrito</button>
                 </div>
                 <div class="slide-image">
                     <!-- Ninja Extractor Image -->
@@ -202,14 +213,9 @@
             <!-- Slide 2: Agencia de Marketing (Servicios / Digitales) -->
             <div class="slide" style="background: linear-gradient(135deg, #eae5fc 0%, #dbd4f9 100%);">
                 <div class="slide-content">
-                    <span class="slide-badge" style="background-color: var(--color-accent-purple);">Mercadocom Agency</span>
                     <h2 class="slide-title" style="font-size:38px;">Multiplica las Ventas<br>de tu Negocio</h2>
                     <p class="slide-desc">Posicionamiento SEO, Diseño de Tiendas Web, y Gestión de Redes Sociales profesionales. Diseñado para empresas de Ecuador y el mundo.</p>
-                    <div class="slide-price-tag">
-                        <span>Planes mensuales desde:</span>
-                        <div class="slide-price-val">$300 <span style="font-size:16px;">USD/mes</span></div>
-                    </div>
-                    <a href="nosotros.html" class="slide-btn" style="background-color: var(--color-accent-purple);">Ver Servicios de Marketing</a>
+                    <a href="nosotros.html" class="slide-btn" style="background-color: var(--color-accent-purple); margin-top:20px;">Ver Servicios de Marketing</a>
                 </div>
                 <div class="slide-image">
                     <img src="images/agency_banner.png" alt="Servicios de Marketing Digital" style="border-radius: var(--radius-md); box-shadow: var(--shadow-lg);">
@@ -329,17 +335,17 @@
             <div>
                 <h4 class="footer-column-title">Contacto y Soporte</h4>
                 <ul class="footer-links" style="color: #94a3b8; font-size:13px;">
-                    <li><i class="fas fa-envelope"></i> soporte@Nexus Marketing.com</li>
-                    <li><i class="fas fa-phone-alt"></i> +593 99 181 8544</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Av. De los Shyris, Quito, Ecuador</li>
-                    <li><i class="far fa-clock"></i> Lun - Sáb: 9:00 AM - 7:00 PM</li>
+                    <li><i class="fas fa-envelope"></i> nexusmarketingital@gmail.com</li>
+                    <li><i class="fas fa-phone-alt"></i> +593 98 690 3129</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Calle Cutuchi L3 y Vía Patamarca (Uncovia), Cuenca, Ecuador</li>
+                    <li><i class="far fa-clock"></i> Lun - Vie: 08H00 a 19H30<br>Sáb: 08H00 a 14H30</li>
                     <li style="margin-top:10px;"><span class="badge badge-green" style="margin-left:0; font-size:10px;">Atención en Línea</span></li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Nexus Marketing - El mall virtual de Ecuador. Todos los derechos reservados. Desarrollado por Mercadocom Agency.</p>
+            <p>&copy; 2026 Nexus Marketing - El mall virtual de Ecuador. Todos los derechos reservados. Desarrollado por Nexus Marketing Digital.</p>
             <p>
                 <a href="#" style="color:#64748b; margin-right:15px;">Privacidad</a>
                 <a href="#" style="color:#64748b;">Términos de Servicio</a>

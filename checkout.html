@@ -34,9 +34,12 @@
     <!-- CABECERA DE CHECKOUT -->
     <header class="main-header" style="border-bottom:1px solid var(--color-border); padding: 15px 5%;">
         <!-- Logotipo -->
-        <a href="index.html" class="logo">
-            <span class="logo-main">Nexus Marketing</span>
-            <span class="logo-sub">Pasarela de Pagos Ficticia</span>
+        <a href="index.html" class="logo" style="display:flex; flex-direction:row; align-items:center; gap:10px; text-decoration:none;">
+            <img src="images/logo.png" alt="Nexus Marketing Logo" style="height:40px; width:40px; object-fit:cover; border-radius:50%; border: 1px solid var(--color-border);">
+            <div style="display:flex; flex-direction:column;">
+                <span class="logo-main" style="font-size:22px; line-height:1.1; margin:0;">Nexus Marketing</span>
+                <span class="logo-sub" style="font-size:8px; margin:0;">Pasarela de Pagos Ficticia</span>
+            </div>
         </a>
         <div style="font-size: 13px; font-weight: 600; color: var(--color-accent-green); display:flex; align-items:center; gap:8px;">
             <i class="fas fa-lock" style="font-size:16px;"></i> Conexión Cifrada SSL 256-bits
@@ -68,15 +71,15 @@
                     </div>
                     <div class="form-group">
                         <label for="buyer-phone" class="form-label">Número de Celular *</label>
-                        <input type="tel" id="buyer-phone" required placeholder="Ej. +593 99 181 8544">
+                        <input type="tel" id="buyer-phone" required placeholder="Ej. +593 98 690 3129">
                     </div>
                     <div class="form-group full-width">
                         <label for="buyer-address" class="form-label">Dirección de Entrega / Facturación *</label>
-                        <input type="text" id="buyer-address" required placeholder="Ej. Av. de los Shyris N34-122 y Portugal">
+                        <input type="text" id="buyer-address" required placeholder="Ej. Calle Cutuchi L3 y Vía Patamarca (Uncovia)">
                     </div>
                     <div class="form-group">
                         <label for="buyer-city" class="form-label">Ciudad *</label>
-                        <input type="text" id="buyer-city" required placeholder="Ej. Quito">
+                        <input type="text" id="buyer-city" required placeholder="Ej. Cuenca">
                     </div>
                     <div class="form-group">
                         <label for="buyer-zip" class="form-label">Código Postal (Opcional)</label>
@@ -262,7 +265,7 @@
     <!-- PIE DE PÁGINA REDUCIDO -->
     <footer style="padding:40px 5% 20px 5%; font-size:12px; margin-top:50px;">
         <div style="display:flex; justify-content:space-between; align-items:center; color:#94a3b8;">
-            <p>&copy; 2026 Nexus Marketing - El mall virtual de Ecuador &amp; Agencia de Marketing. Todos los derechos reservados.</p>
+            <p>&copy; 2026 Nexus Marketing - El mall virtual de Ecuador &amp; Agencia de Marketing. Todos los derechos reservados. Desarrollado por Nexus Marketing Digital.</p>
             <p><i class="fas fa-lock"></i> Servidor Seguro y Protegido</p>
         </div>
     </footer>

@@ -107,13 +107,78 @@ const catalogItems = [
         image: "images/robot_vacuum.svg",
         installments: "6 cuotas de $33.16 USD",
         description: "Robot aspiradora y mopa con navegación láser inteligente LiDAR. Mapea tu hogar en 3D, esquiva obstáculos con precisión milimétrica y regresa solo a su base de carga. Control total por aplicación celular y comando de voz."
+    },
+    {
+        id: "serv-email-marketing",
+        name: "Automatización Email Marketing Pro",
+        category: "Servicios de Marketing",
+        price: 250,
+        oldPrice: 350,
+        rating: 5,
+        badge: "Nuevo",
+        badgeClass: "badge-yellow",
+        image: "images/email_marketing.svg",
+        installments: "Mensualidad / Sin contratos",
+        description: "Sistema de automatización de correos masivos con segmentación inteligente de audiencias. Incluye plantillas profesionales, análisis de métricas de apertura y conversión, y secuencias automatizadas de bienvenida y recuperación de carritos abandonados."
+    },
+    {
+        id: "prod-tablet-edu",
+        name: "Tablet Educativa SmartLearn 10\" HD",
+        category: "Electrónica",
+        price: 179,
+        oldPrice: 249,
+        rating: 4,
+        badge: "Educación",
+        badgeClass: "badge-cyan",
+        image: "images/tablet_edu.svg",
+        installments: "6 cuotas de $29.83 USD",
+        description: "Tablet educativa con pantalla HD de 10 pulgadas, ideal para estudiantes. Incluye apps educativas preinstaladas, protección ocular anti-luz azul, batería de larga duración y funda antigolpes resistente a caídas."
+    },
+    {
+        id: "prod-camara-seguridad",
+        name: "Cámara de Seguridad WiFi 360° Smart",
+        category: "Electrónica",
+        price: 65,
+        oldPrice: 99,
+        rating: 4,
+        badge: "Sale",
+        badgeClass: "badge-red",
+        image: "images/security_cam.svg",
+        installments: "3 cuotas de $21.66 USD",
+        description: "Vigilancia inteligente 24/7 con rotación 360°, visión nocturna infrarroja, detección de movimiento con alertas al celular, audio bidireccional y almacenamiento en la nube. Compatible con Alexa y Google Home."
+    },
+    {
+        id: "serv-branding",
+        name: "Diseño de Identidad Corporativa & Branding",
+        category: "Servicios de Marketing",
+        price: 599,
+        oldPrice: 800,
+        rating: 5,
+        badge: "Premium",
+        badgeClass: "badge-green",
+        image: "images/branding.svg",
+        installments: "Pago único / 50% inicio",
+        description: "Creación completa de identidad visual para tu marca: logotipo profesional, manual de marca, paleta de colores, tipografía corporativa, papelería comercial, tarjetas de presentación y plantillas para redes sociales."
+    },
+    {
+        id: "prod-smartwatch",
+        name: "Reloj Inteligente FitPro Ultra",
+        category: "Electrónica",
+        price: 120,
+        oldPrice: 189,
+        rating: 4,
+        badge: "Popular",
+        badgeClass: "badge-yellow",
+        image: "images/smartwatch.svg",
+        installments: "3 cuotas de $40 USD",
+        description: "Smartwatch premium con monitor de ritmo cardíaco, oxígeno en sangre (SpO2), GPS integrado, resistencia al agua IP68, más de 100 modos deportivos y pantalla AMOLED ultra brillante. Batería de 14 días."
     }
 ];
 
 // Base de datos de tiendas afiliadas (Directorio)
 const directoryStores = [
     { id: "store-ninja", name: "Ninja Oficial Ecuador", category: "Electrodomésticos", rating: 5, logoText: "N", productsCount: 15, meta: "Vendedor Autorizado" },
-    { id: "store-Nexus Marketing-marketing", name: "Mercadocom Agency", category: "Servicios Digitales", rating: 5, logoText: "MA", productsCount: 12, meta: "Agencia Principal" },
+    { id: "store-Nexus Marketing-marketing", name: "Nexus Marketing Digital", category: "Servicios Digitales", rating: 5, logoText: "ND", productsCount: 12, meta: "Agencia Principal" },
     { id: "store-samsung", name: "Samsung Store", category: "Electrónica", rating: 4.8, logoText: "S", productsCount: 42, meta: "Distribuidor Platino" },
     { id: "store-electromundo", name: "ElectroMundo", category: "Hogar", rating: 4.5, logoText: "EM", productsCount: 30, meta: "Tienda Verificada" },
     { id: "store-fashionecu", name: "Fashion Ecuador", category: "Moda y Ropa", rating: 4.2, logoText: "FE", productsCount: 22, meta: "Tienda de Ropa" },
@@ -162,7 +227,12 @@ const inlineSVGs = {
     "images/robot_vacuum.svg": `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="110" height="110"><rect width="100%" height="100%" fill="#f1f5f9"/><circle cx="100" cy="100" r="55" fill="#334155" stroke="#0f172a" stroke-width="4"/><circle cx="100" cy="100" r="48" fill="#1e293b"/><circle cx="100" cy="70" r="15" fill="#6d28d9" stroke="#4c1d95" stroke-width="2"/><circle cx="100" cy="70" r="5" fill="#a78bfa"/><line x1="80" y1="125" x2="120" y2="125" stroke="#475569" stroke-width="4" stroke-linecap="round"/></svg>`,
     "images/blog_ecommerce.svg": `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="100%" height="100%"><rect width="100%" height="100%" fill="#f1f5f9"/><path d="M 0 180 q 100-30 200-10 q 100 20 200-20 v 100 h-400 z" fill="#e2e8f0"/><circle cx="280" cy="100" r="35" fill="#6d28d9" opacity="0.15"/><path d="M130 80 h 140 v 90 h -140 z" fill="#0a2540"/><circle cx="160" cy="120" r="18" fill="#ef4444"/><circle cx="240" cy="120" r="18" fill="#ec4899"/><path d="M190 120 h20" stroke="#ffffff" stroke-width="3"/></svg>`,
     "images/blog_checkout.svg": `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="100%" height="100%"><rect width="100%" height="100%" fill="#f1f5f9"/><rect x="80" y="50" width="240" height="150" rx="8" fill="#1e293b"/><rect x="100" y="80" width="50" height="35" rx="3" fill="#eab308"/><rect x="100" y="140" width="200" height="25" rx="3" fill="#ffffff" opacity="0.2"/></svg>`,
-    "images/blog_seo.svg": `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="100%" height="100%"><rect width="100%" height="100%" fill="#f1f5f9"/><path d="M80 180 h 240" stroke="#6d28d9" stroke-width="4"/><path d="M120 180 v-40 m40 40 v-70 m40 70 v-90 m40 70 v-50" stroke="#0a2540" stroke-width="12" stroke-linecap="round"/></svg>`
+    "images/blog_seo.svg": `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="100%" height="100%"><rect width="100%" height="100%" fill="#f1f5f9"/><path d="M80 180 h 240" stroke="#6d28d9" stroke-width="4"/><path d="M120 180 v-40 m40 40 v-70 m40 70 v-90 m40 70 v-50" stroke="#0a2540" stroke-width="12" stroke-linecap="round"/></svg>`,
+    "images/email_marketing.svg": `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="120" height="120"><rect width="100%" height="100%" fill="#f1f5f9"/><rect x="35" y="60" width="130" height="90" rx="8" fill="#0a2540"/><path d="M35 68 l65 45 65-45" fill="none" stroke="#06b6d4" stroke-width="4"/><circle cx="150" cy="55" r="18" fill="#ef4444"/><text x="150" y="60" font-family="Outfit" font-weight="700" font-size="14" fill="#fff" text-anchor="middle">3</text><text x="100" y="175" font-family="Outfit" font-weight="700" font-size="11" fill="#0a2540" text-anchor="middle">EMAIL MARKETING</text></svg>`,
+    "images/tablet_edu.svg": `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="120" height="120"><rect width="100%" height="100%" fill="#f1f5f9"/><rect x="50" y="35" width="100" height="135" rx="8" fill="#0a2540"/><rect x="57" y="45" width="86" height="105" rx="3" fill="#1e293b"/><circle cx="100" cy="162" r="6" fill="#475569"/><path d="M75 85 l10-15 12 10 18-25 10 30" fill="none" stroke="#06b6d4" stroke-width="3" stroke-linecap="round"/><text x="100" y="190" font-family="Outfit" font-weight="700" font-size="11" fill="#0a2540" text-anchor="middle">TABLET EDUCATIVA</text></svg>`,
+    "images/security_cam.svg": `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="120" height="120"><rect width="100%" height="100%" fill="#f1f5f9"/><circle cx="100" cy="90" r="35" fill="#334155" stroke="#0f172a" stroke-width="3"/><circle cx="100" cy="90" r="18" fill="#0a2540"/><circle cx="100" cy="90" r="8" fill="#06b6d4"/><rect x="90" y="125" width="20" height="30" fill="#334155"/><rect x="70" y="155" width="60" height="8" rx="4" fill="#0f172a"/><circle cx="130" cy="70" r="5" fill="#ef4444"/><text x="100" y="185" font-family="Outfit" font-weight="700" font-size="11" fill="#0a2540" text-anchor="middle">CÁMARA 360°</text></svg>`,
+    "images/branding.svg": `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="120" height="120"><rect width="100%" height="100%" fill="#f1f5f9"/><rect x="55" y="40" width="90" height="120" rx="6" fill="#ffffff" stroke="#0a2540" stroke-width="3"/><circle cx="100" cy="75" r="20" fill="#6d28d9"/><text x="100" y="81" font-family="Outfit" font-weight="800" font-size="16" fill="#fff" text-anchor="middle">N</text><rect x="70" y="105" width="60" height="6" rx="3" fill="#cbd5e1"/><rect x="75" y="118" width="50" height="4" rx="2" fill="#e2e8f0"/><rect x="80" y="128" width="40" height="4" rx="2" fill="#e2e8f0"/><text x="100" y="185" font-family="Outfit" font-weight="700" font-size="11" fill="#0a2540" text-anchor="middle">BRANDING</text></svg>`,
+    "images/smartwatch.svg": `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="120" height="120"><rect width="100%" height="100%" fill="#f1f5f9"/><rect x="70" y="25" width="60" height="20" rx="5" fill="#334155"/><rect x="65" y="45" width="70" height="90" rx="14" fill="#0a2540" stroke="#334155" stroke-width="2"/><rect x="72" y="52" width="56" height="76" rx="10" fill="#020617"/><circle cx="100" cy="78" r="20" fill="none" stroke="#06b6d4" stroke-width="2"/><path d="M100 65 v13 l8 8" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/><circle cx="100" cy="105" r="3" fill="#10b981"/><rect x="70" y="135" width="60" height="20" rx="5" fill="#334155"/><text x="100" y="180" font-family="Outfit" font-weight="700" font-size="11" fill="#0a2540" text-anchor="middle">SMARTWATCH</text></svg>`
 };
 
 // ==========================================================================
@@ -195,7 +265,7 @@ function renderProductImage(imagePath, targetEl) {
     if (inlineSVGs[imagePath]) {
         targetEl.innerHTML = inlineSVGs[imagePath];
     } else {
-        targetEl.innerHTML = `<img src="${imagePath}" alt="Imagen del producto" onerror="this.onerror=null; this.parentNode.innerHTML=inlineSVGs['images/seo_marketing.svg']">`;
+        targetEl.innerHTML = `<img src="${imagePath}" alt="Imagen del producto" onerror="this.onerror=null; this.parentNode.innerHTML=window.inlineSVGs['images/seo_marketing.svg']">`;
     }
 }
 
@@ -330,6 +400,92 @@ const CartManager = {
 };
 
 // ==========================================================================
+// GESTOR DE LISTA DE DESEOS (WISHLIST)
+// ==========================================================================
+const WishlistManager = {
+    items: JSON.parse(localStorage.getItem('nexus_wishlist')) || [],
+
+    toggle: function(productId) {
+        const idx = this.items.indexOf(productId);
+        if (idx > -1) {
+            this.items.splice(idx, 1);
+            showToast('Eliminado de tu lista de deseos', 'success');
+        } else {
+            this.items.push(productId);
+            showToast('Añadido a tu lista de deseos ♥', 'success');
+        }
+        localStorage.setItem('nexus_wishlist', JSON.stringify(this.items));
+        this.updateUI();
+    },
+
+    isInWishlist: function(productId) {
+        return this.items.indexOf(productId) > -1;
+    },
+
+    updateUI: function() {
+        // Actualizar todos los botones de corazón en la página
+        document.querySelectorAll('.product-wishlist-btn').forEach(btn => {
+            const pid = btn.getAttribute('data-product-id');
+            if (pid && this.isInWishlist(pid)) {
+                btn.classList.add('active');
+                btn.innerHTML = '♥';
+            } else if (pid) {
+                btn.classList.remove('active');
+                btn.innerHTML = '♡';
+            }
+        });
+        // Actualizar contador de lista de deseos en el encabezado
+        const wishBadges = document.querySelectorAll('.wishlist-count');
+        wishBadges.forEach(b => b.textContent = this.items.length);
+    },
+
+    showDrawer: function() {
+        let drawer = document.getElementById('wishlist-drawer');
+        let overlay = document.getElementById('wishlist-overlay');
+        if (!drawer) return;
+
+        // Renderizar elementos de la lista de deseos
+        const container = document.getElementById('wishlist-items-list');
+        if (!container) return;
+
+        if (this.items.length === 0) {
+            container.innerHTML = `
+                <div style="text-align:center; padding:40px 20px; color:var(--color-text-muted);">
+                    <div style="font-size:48px; margin-bottom:15px;">♡</div>
+                    <p>Tu lista de deseos está vacía</p>
+                    <small>Explora nuestro catálogo y guarda tus favoritos</small>
+                </div>
+            `;
+        } else {
+            container.innerHTML = this.items.map(pid => {
+                const item = catalogItems.find(p => p.id === pid);
+                if (!item) return '';
+                const isSvg = inlineSVGs[item.image] ? true : false;
+                const imgMarkup = isSvg 
+                    ? `<div style="width:60px;height:60px;display:flex;align-items:center;justify-content:center;">${inlineSVGs[item.image]}</div>` 
+                    : `<img src="${item.image}" alt="${item.name}" style="width:60px;height:60px;object-fit:contain;border-radius:8px;">`;
+                return `
+                    <div style="display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--color-border);">
+                        ${imgMarkup}
+                        <div style="flex:1;">
+                            <h5 style="font-size:13px; font-weight:600; color:var(--color-text-main); margin-bottom:4px;">${item.name}</h5>
+                            <span style="font-size:12px; color:var(--color-primary); font-weight:700;">$${item.price} USD</span>
+                        </div>
+                        <div style="display:flex; gap:8px;">
+                            <button style="background:var(--gradient-primary); color:white; border:none; padding:6px 12px; border-radius:6px; cursor:pointer; font-size:11px;" onclick="CartManager.addItem('${item.id}'); WishlistManager.toggle('${item.id}');">🛒 Comprar</button>
+                            <button style="background:transparent; border:1px solid var(--color-accent-red); color:var(--color-accent-red); padding:6px 10px; border-radius:6px; cursor:pointer; font-size:11px;" onclick="WishlistManager.toggle('${item.id}'); WishlistManager.showDrawer();">✕</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        drawer.classList.add('active');
+        overlay.classList.add('active');
+    }
+};
+
+// ==========================================================================
 // CONTROLADORES DE ELEMENTOS COMUNES DE INTERFAZ (DRAWER, MODALES)
 // ==========================================================================
 
@@ -396,7 +552,7 @@ function initUIControls() {
     if (whatsappFloating) {
         whatsappFloating.addEventListener('click', (e) => {
             e.preventDefault();
-            window.open('https://api.whatsapp.com/send?phone=593991818544&text=Hola!%20Deseo%20cotizar%20servicios%20de%20marketing%20digital.', '_blank');
+            window.open('https://api.whatsapp.com/send?phone=593986903129&text=Hola!%20Deseo%20cotizar%20servicios%20de%20marketing%20digital.', '_blank');
         });
     }
 }
@@ -411,7 +567,7 @@ function openProductDetail(productId) {
     if (!modal || !modalBody) return;
 
     const isSvg = inlineSVGs[item.image] ? true : false;
-    const imgMarkup = isSvg ? inlineSVGs[item.image] : `<img src="${item.image}" alt="${item.name}" onerror="this.onerror=null; this.parentNode.innerHTML=inlineSVGs['images/seo_marketing.svg']">`;
+    const imgMarkup = isSvg ? inlineSVGs[item.image] : `<img src="${item.image}" alt="${item.name}" onerror="this.onerror=null; this.parentNode.innerHTML=window.inlineSVGs['images/seo_marketing.svg']">`;
 
     // Llenar datos
     modalBody.innerHTML = `
@@ -509,12 +665,12 @@ function renderCatalog(filterCategory = "Todos") {
 
     grid.innerHTML = filtered.map(item => {
         const isSvg = inlineSVGs[item.image] ? true : false;
-        const imgMarkup = isSvg ? inlineSVGs[item.image] : `<img src="${item.image}" alt="${item.name}" onerror="this.onerror=null; this.parentNode.innerHTML=inlineSVGs['images/seo_marketing.svg']">`;
+        const imgMarkup = isSvg ? inlineSVGs[item.image] : `<img src="${item.image}" alt="${item.name}" onerror="this.onerror=null; this.parentNode.innerHTML=window.inlineSVGs['images/seo_marketing.svg']">`;
         
         return `
             <div class="product-card">
                 <span class="product-badge badge ${item.badgeClass}">${item.badge}</span>
-                <button class="product-wishlist-btn" onclick="showToast('Añadido a lista de deseos')">♥</button>
+                <button class="product-wishlist-btn" data-product-id="${item.id}" onclick="WishlistManager.toggle('${item.id}')">♡</button>
                 <div class="product-img-container" onclick="openProductDetail('${item.id}')" style="cursor:pointer;">
                     ${imgMarkup}
                 </div>
@@ -569,12 +725,12 @@ function initLiveSearch() {
         } else {
             grid.innerHTML = filtered.map(item => {
                 const isSvg = inlineSVGs[item.image] ? true : false;
-                const imgMarkup = isSvg ? inlineSVGs[item.image] : `<img src="${item.image}" alt="${item.name}" onerror="this.onerror=null; this.parentNode.innerHTML=inlineSVGs['images/seo_marketing.svg']">`;
+                const imgMarkup = isSvg ? inlineSVGs[item.image] : `<img src="${item.image}" alt="${item.name}" onerror="this.onerror=null; this.parentNode.innerHTML=window.inlineSVGs['images/seo_marketing.svg']">`;
                 
                 return `
                     <div class="product-card">
                         <span class="product-badge badge ${item.badgeClass}">${item.badge}</span>
-                        <button class="product-wishlist-btn" onclick="showToast('Añadido a lista de deseos')">♥</button>
+                        <button class="product-wishlist-btn" data-product-id="${item.id}" onclick="WishlistManager.toggle('${item.id}')">♡</button>
                         <div class="product-img-container" onclick="openProductDetail('${item.id}')" style="cursor:pointer;">
                             ${imgMarkup}
                         </div>
@@ -610,6 +766,49 @@ function initLiveSearch() {
             handleSearch();
         });
     }
+}
+
+// Búsqueda por Voz (Web Speech API)
+function initVoiceSearch() {
+    const voiceBtn = document.querySelector('.search-voice-btn');
+    const searchInput = document.getElementById('search-input');
+    if (!voiceBtn || !searchInput) return;
+
+    voiceBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+            showToast('Tu navegador no soporta búsqueda por voz. Intenta con Chrome.', 'error');
+            return;
+        }
+
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'es-EC';
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        voiceBtn.classList.add('listening');
+        voiceBtn.innerHTML = '<i class="fas fa-circle" style="color:#ef4444; animation: pulse 1s infinite;"></i>';
+        showToast('🎤 Escuchando... Habla ahora', 'success');
+
+        recognition.start();
+
+        recognition.onresult = (event) => {
+            const transcript = event.results[0][0].transcript;
+            searchInput.value = transcript;
+            searchInput.dispatchEvent(new Event('input'));
+            showToast(`Búsqueda por voz: "${transcript}"`, 'success');
+        };
+
+        recognition.onerror = (event) => {
+            showToast('No se pudo reconocer. Intenta de nuevo.', 'error');
+        };
+
+        recognition.onend = () => {
+            voiceBtn.classList.remove('listening');
+            voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+        };
+    });
 }
 
 // Inicialización de Pestañas de Categoría (index.html)
@@ -1023,6 +1222,8 @@ document.addEventListener('DOMContentLoaded', () => {
         initCatalogTabs();
         initHeroSlider();
         initLiveSearch();
+        initVoiceSearch();
+        WishlistManager.updateUI();
     }
 
     if (document.getElementById('checkout-order-items')) {
@@ -1078,8 +1279,11 @@ window.PromoSystem = {
 // EXPORTACIÓN GLOBAL PARA HTML INLINE ONCLICK (SOLUCIÓN A VITE MODULES)
 // ==========================================================================
 window.CartManager = CartManager;
+window.WishlistManager = WishlistManager;
 window.renderCatalog = renderCatalog;
 window.showToast = showToast;
 window.openProductDetail = openProductDetail;
+window.initVoiceSearch = initVoiceSearch;
+window.inlineSVGs = inlineSVGs;
 window.sendChatMessage = typeof sendChatMessage !== 'undefined' ? sendChatMessage : function() { showToast('Mensaje enviado') };
 window.PromoSystem = window.PromoSystem;
